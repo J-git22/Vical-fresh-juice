@@ -1,5 +1,5 @@
 // Configuration
-const whatsappNumber = "233244284300"; // Updated with actual WhatsApp number
+const whatsappNumber = "233543557388"; // Primary WhatsApp number for links
 
 // Static Product Data
 const classicPacks = [
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderProducts();
 
     // --- Initialize display WhatsApp number ---
-    document.getElementById('display-whatsapp').innerText = "+" + whatsappNumber;
+    document.getElementById('display-whatsapp').innerText = "0543557388 / 0242750157";
 
     // --- Modal Outside Click Listener ---
     const imageModal = document.getElementById('image-modal');
