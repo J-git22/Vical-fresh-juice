@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { font-family: sans-serif; }
+  .grid { display: flex; flex-wrap: wrap; gap: 20px; }
+  .card { border: 1px solid #ccc; padding: 10px; width: 300px; text-align: center; }
+  .card img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<h1>Image Gallery</h1>
+<p>Please help me map the filenames below to the juice flavours (Mango, Pineapple, Orange, Watermelon, Mixed Fruit, Tigernut, Detox Special, Magic Green).</p>
+<div class="grid" id="gallery"></div>
+<script>
+  const images = [
+    '_DSC8482.jpg', '_DSC8483.jpg', '_DSC8500.jpg', '_DSC8506.jpg', '_DSC8510.jpg', 
+    '_DSC8513.jpg', '_DSC8516.jpg', '_DSC8544.jpg', '_DSC8546.jpg', '_DSC8569.jpg', 
+    '_DSC8571.jpg', '_DSC8589.jpg', '_DSC8634.jpg', '_DSC8635.jpg', '_DSC8637.jpg', 
+    '_DSC8642.jpg', '_DSC8687.jpg', '_DSC8690.jpg', '_DSC8696.jpg', '_DSC8721.jpg', 
+    '_DSC8734.jpg', '_DSC8755.jpg', '_DSC8760.jpg', '_DSC8767.jpg', '_DSC8813.jpg', 
+    '_DSC8814.jpg', '_DSC8815.jpg', '_DSC8816.jpg', '_DSC8818.jpg', '_DSC8819.jpg', 
+    '_DSC8820.jpg', '_DSC8821.jpg', '_DSC8822.jpg', '_DSC8823.jpg', '_DSC8824.jpg', 
+    '_DSC8825.jpg', '_DSC8826.jpg', '_DSC8827.jpg', '_DSC8828.jpg', '_DSC8829.jpg', 
+    '_DSC8830.jpg', '_DSC8831.jpg', '_DSC8832.jpg', '_DSC8833.jpg'
+  ];
+  const gallery = document.getElementById('gallery');
+  images.forEach(img => {
+    gallery.innerHTML += `<div class="card"><img src="../${img}" alt="${img}"><br><strong>${img}</strong></div>`;
+  });
+</script>
+</body>
+</html>
