@@ -16,9 +16,9 @@
     --grad-primary: linear-gradient(135deg, var(--clr-lemon-green) 0%, #65a30d 100%);
     
     /* Text Colors */
-    --clr-text-dark: #0f172a;
-    --clr-text-body: #334155;
-    --clr-text-muted: #64748b;
+    --clr-text-dark: #14532d; /* Very dark green instead of slate */
+    --clr-text-body: #3f6212; /* Dark olive green for body text */
+    --clr-text-muted: #65a30d; /* Muted green */
     
     /* Typography */
     --font-primary: 'Outfit', sans-serif;
@@ -233,18 +233,18 @@ img { max-width: 100%; display: block; border-radius: var(--radius-md); }
 .leave-review-cta h3 { font-size: 1.75rem; font-weight: 800; color: var(--clr-lemon-green-dark); margin-bottom: 1.5rem; }
 
 /* --- Footer --- */
-.footer { background: var(--clr-text-dark); color: var(--clr-white); padding: 5rem 2rem 2rem; }
+.footer { background: var(--clr-white); color: var(--clr-text-body); padding: 5rem 2rem 2rem; border-top: 1px solid rgba(132, 204, 22, 0.2); }
 .footer-grid { max-width: var(--container-max); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
 .brand-logo-footer { height: 50px; margin-bottom: 1.5rem; }
 .social-links { display: flex; gap: 1rem; margin-top: 1.5rem; }
-.social-links a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: var(--transition); font-size: 1.25rem; }
-.social-links a:hover { background: var(--clr-orange); transform: translateY(-3px); }
-.footer h3 { font-size: 1.25rem; margin-bottom: 1.5rem; color: rgba(255,255,255,0.9); }
-.footer-contact p { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; opacity: 0.8; }
+.social-links a { width: 40px; height: 40px; background: var(--clr-lemon-green-light); color: var(--clr-lemon-green-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: var(--transition); font-size: 1.25rem; }
+.social-links a:hover { background: var(--clr-orange); color: var(--clr-white); transform: translateY(-3px); }
+.footer h3 { font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--clr-text-dark); font-weight: 800; }
+.footer-contact p { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
 .footer-links { display: flex; flex-direction: column; gap: 1rem; }
-.footer-links a { opacity: 0.8; }
-.footer-links a:hover { opacity: 1; color: var(--clr-lemon-green); padding-left: 5px; }
-.footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.6; font-size: 0.9rem; }
+.footer-links a { font-weight: 500; }
+.footer-links a:hover { color: var(--clr-orange); padding-left: 5px; }
+.footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(132, 204, 22, 0.2); font-size: 0.9rem; font-weight: 500; }
 
 /* --- Floating WhatsApp Button --- */
 .floating-whatsapp {
