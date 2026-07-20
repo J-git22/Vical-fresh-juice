@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     ${packOptionsHtml}
                     <button class="btn-primary btn-buy" onclick="buyNow(${product.id}, '${product.name.replace(/'/g, "\\'")}')">
-                        <i class="ph-bold ph-whatsapp-logo"></i> Buy Now
+                        <i class="ph-bold ph-whatsapp-logo"></i> Order Now
                     </button>
                 </div>
             `;
@@ -195,6 +195,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- Scroll Reveal Animation ---
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    const revealOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, revealOptions);
+
+    revealElements.forEach(el => {
+        revealOnScroll.observe(el);
+    });
 });
 
 // --- Global Functions ---
