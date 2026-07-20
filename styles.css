@@ -235,7 +235,7 @@ img { max-width: 100%; display: block; border-radius: var(--radius-md); }
 /* --- Footer --- */
 .footer { background: var(--clr-text-dark); color: var(--clr-white); padding: 5rem 2rem 2rem; }
 .footer-grid { max-width: var(--container-max); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
-.brand-logo-footer { height: 50px; filter: brightness(0) invert(1); margin-bottom: 1.5rem; }
+.brand-logo-footer { height: 50px; margin-bottom: 1.5rem; }
 .social-links { display: flex; gap: 1rem; margin-top: 1.5rem; }
 .social-links a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: var(--transition); font-size: 1.25rem; }
 .social-links a:hover { background: var(--clr-orange); transform: translateY(-3px); }
