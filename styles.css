@@ -106,7 +106,7 @@ img { max-width: 100%; display: block; border-radius: var(--radius-md); }
     max-width: var(--container-max); margin: 0 auto; padding: 1rem 2rem;
     display: flex; justify-content: space-between; align-items: center;
 }
-.brand-logo { height: 40px; width: auto; object-fit: contain; }
+.brand-logo { height: 65px; width: auto; object-fit: contain; transition: var(--transition); }
 .nav-links { display: flex; gap: 2.5rem; align-items: center; }
 .nav-links a { font-weight: 600; color: var(--clr-text-dark); font-size: 1rem; }
 .nav-links a:hover { color: var(--clr-lemon-green); }
@@ -172,9 +172,8 @@ img { max-width: 100%; display: block; border-radius: var(--radius-md); }
 .product-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
 .product-image { 
     width: 100%; 
-    height: 250px; 
-    object-fit: cover; 
-    object-position: top;
+    height: 280px; 
+    object-fit: contain; 
     padding: 0; 
     background: transparent;
     border-radius: var(--radius-lg) var(--radius-lg) 0 0; 
@@ -199,7 +198,7 @@ img { max-width: 100%; display: block; border-radius: var(--radius-md); }
 .specialty-grid { max-width: var(--container-max); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
 .specialty-card { background: var(--clr-white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-soft); transition: var(--transition); }
 .specialty-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
-.specialty-card img { width: 100%; height: 250px; object-fit: cover; padding: 0; background: transparent; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+.specialty-card img { width: 100%; height: 250px; object-fit: cover; padding: 0; background: transparent; border-radius: var(--radius-lg) var(--radius-lg) 0 0; cursor: pointer; }
 .specialty-info { padding: 1.5rem; text-align: center; }
 .specialty-info h3 { font-size: 1.5rem; font-weight: 800; color: var(--clr-text-dark); margin-bottom: 0.5rem; }
 .specialty-info p { color: var(--clr-text-muted); }
@@ -324,6 +323,7 @@ img { max-width: 100%; display: block; border-radius: var(--radius-md); }
 @media (max-width: 768px) {
     .nav-links, .nav-cta { display: none; }
     .mobile-toggle { display: block; }
+    .logo img { height: 55px; }
     .hero { flex-direction: column; text-align: center; padding-top: 7rem; }
     .hero-content { padding-right: 0; margin-bottom: 3rem; }
     .hero-buttons, .hero-stats { justify-content: center; }
