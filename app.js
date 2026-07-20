@@ -134,25 +134,15 @@ document.addEventListener('DOMContentLoaded', () => {
             card.className = 'product-card';
 
             // Generate Pack Options HTML
-            let packOptionsHtml = '';
-            if (hasPacks) {
-                packOptionsHtml = `
-                    <div class="pack-options">
-                        <label class="price-label" for="pack-${product.id}">Select Size:</label>
-                        <select id="pack-${product.id}" class="pack-select" onchange="updatePrice(${product.id}, this)">
-                            ${product.singlePrice ? `<option value="single" data-price="${product.singlePrice}">Single Bottle - GH₵${product.singlePrice.toFixed(2)}</option>` : ''}
-                            ${product.packs.map(pack => `<option value="${pack.name}" data-price="${pack.price}">${pack.name} - GH₵${pack.price.toFixed(2)}</option>`).join('')}
-                        </select>
-                    </div>
-                `;
-            } else if (product.singlePrice) {
-                packOptionsHtml = `
-                    <div class="pack-options">
-                        <span class="price-label" style="display:block; margin-bottom:0.5rem; color:var(--clr-text-light);">Single Bottle</span>
-                        <input type="hidden" id="pack-${product.id}" value="single">
-                    </div>
-                `;
-            }
+            let packOptionsHtml = `
+                <div class="pack-options">
+                    <label class="price-label" for="pack-${product.id}">SELECT SIZE:</label>
+                    <select id="pack-${product.id}" class="pack-select" onchange="updatePrice(${product.id}, this)">
+                        ${product.singlePrice ? `<option value="single" data-price="${product.singlePrice}">Single Bottle - GH₵${product.singlePrice.toFixed(2)}</option>` : ''}
+                        ${(product.packs || []).map(pack => `<option value="${pack.name}" data-price="${pack.price}">${pack.name} - GH₵${pack.price.toFixed(2)}</option>`).join('')}
+                    </select>
+                </div>
+            `;
 
             const initialPrice = product.singlePrice || (hasPacks ? product.packs[0].price : 0);
 
@@ -162,12 +152,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3 class="product-title">${product.name}</h3>
                     <p class="product-desc">${product.description}</p>
                     <div class="price-section">
-                        <span class="price-label">Price</span>
+                        <span class="price-label">PRICE</span>
                         <div class="price-value" id="price-${product.id}">GH₵${initialPrice.toFixed(2)}</div>
                     </div>
                     ${packOptionsHtml}
                     <button class="btn-primary btn-buy" onclick="buyNow(${product.id}, '${product.name.replace(/'/g, "\\'")}')">
-                        <i class="ph-bold ph-whatsapp-logo"></i> Order Now
+                        <i class="ph-bold ph-whatsapp-logo"></i> Buy Now
                     </button>
                 </div>
             `;
