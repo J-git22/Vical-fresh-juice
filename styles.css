@@ -12,8 +12,9 @@
     --clr-orange-light: #ffedd5;
     
     /* Gradients */
-    --grad-hero: linear-gradient(135deg, #f8fafc 0%, #ecfccb 50%, #fff7ed 100%);
+    --grad-hero: linear-gradient(135deg, #f8fafc 0%, #d9f99d 50%, #ffedd5 100%);
     --grad-primary: linear-gradient(135deg, var(--clr-lemon-green) 0%, #65a30d 100%);
+    --grad-glass: rgba(255, 255, 255, 0.7);
     
     /* Text Colors */
     --clr-text-dark: #14532d; /* Very dark green instead of slate */
@@ -44,7 +45,7 @@
 html { scroll-behavior: smooth; }
 body {
     font-family: var(--font-primary);
-    background-color: var(--clr-white);
+    background: linear-gradient(to bottom, var(--clr-white) 0%, #fafcff 100%);
     color: var(--clr-text-body);
     line-height: 1.7;
     overflow-x: hidden;
@@ -99,8 +100,9 @@ img { max-width: 100%; display: block; border-radius: var(--radius-md); }
 /* --- Navigation --- */
 .navbar {
     position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-    background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,0,0,0.05); transition: var(--transition);
+    background: var(--grad-glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
 }
 .nav-container {
     max-width: var(--container-max); margin: 0 auto; padding: 1rem 2rem;

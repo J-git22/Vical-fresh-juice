@@ -87,7 +87,7 @@ const products = [
         description: "Green Juice - Detox Special.",
         image: "images/detox.jpg",
         singlePrice: 25.00,
-        packs: []
+        packs: classicPacks
     },
     {
         id: 10,
@@ -95,7 +95,23 @@ const products = [
         description: "Fresh and healthy carrot juice.",
         image: "images/carrot.jpg",
         singlePrice: 25.00,
-        packs: []
+        packs: classicPacks
+    },
+    {
+        id: 11,
+        name: "Vical Signature Blend",
+        description: "Our signature blend of premium fresh fruits.",
+        image: "images/better.jpg",
+        singlePrice: 20.00,
+        packs: classicPacks
+    },
+    {
+        id: 12,
+        name: "Vical Premium Mix",
+        description: "A specially curated mix for vibrant energy.",
+        image: "images/better1.jpg",
+        singlePrice: 20.00,
+        packs: classicPacks
     }
 ];
 
@@ -138,13 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="pack-options">
                     <label class="price-label" for="pack-${product.id}">SELECT SIZE:</label>
                     <select id="pack-${product.id}" class="pack-select" onchange="updatePrice(${product.id}, this)">
-                        ${product.singlePrice ? `<option value="single" data-price="${product.singlePrice}">Single Bottle - GH₵${product.singlePrice.toFixed(2)}</option>` : ''}
                         ${(product.packs || []).map(pack => `<option value="${pack.name}" data-price="${pack.price}">${pack.name} - GH₵${pack.price.toFixed(2)}</option>`).join('')}
                     </select>
                 </div>
             `;
 
-            const initialPrice = product.singlePrice || (hasPacks ? product.packs[0].price : 0);
+            const initialPrice = hasPacks ? product.packs[0].price : 0;
 
             card.innerHTML = `
                 <img src="${product.image}" alt="${product.name}" class="product-image">
