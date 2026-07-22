@@ -43,9 +43,17 @@
 /* --- Global Reset --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 body {
     font-family: var(--font-primary);
-    background: linear-gradient(to bottom, var(--clr-white) 0%, #fafcff 100%);
+    background: linear-gradient(-45deg, #f8fafc, #d9f99d, #ffedd5, #ffffff);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
     color: var(--clr-text-body);
     line-height: 1.7;
     overflow-x: hidden;
@@ -163,12 +171,15 @@ img { max-width: 100%; display: block; border-radius: var(--radius-md); }
 .feature-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--clr-text-dark); }
 
 /* --- Shop --- */
-.shop { padding: var(--spacing-xl) 2rem; background: var(--clr-white); }
+.shop { padding: var(--spacing-xl) 2rem; background: transparent; }
 .shop-guarantees { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
 .guarantee-badge { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--clr-lemon-green-dark); background: var(--clr-lemon-green-light); padding: 0.5rem 1rem; border-radius: var(--radius-full); }
 .product-grid { max-width: var(--container-max); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
 .product-card {
-    background: var(--clr-surface); border-radius: var(--radius-lg); overflow: hidden;
+    background: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-lg); overflow: hidden;
     box-shadow: var(--shadow-soft); transition: var(--transition); display: flex; flex-direction: column;
 }
 .product-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }

@@ -35,14 +35,7 @@ const products = [
         singlePrice: 20.00,
         packs: classicPacks
     },
-    {
-        id: 4,
-        name: "Orange Juice",
-        description: "100% freshly squeezed oranges.",
-        image: "images/orange.jpg",
-        singlePrice: 20.00,
-        packs: classicPacks
-    },
+
     {
         id: 5,
         name: "Melon Vibes",
@@ -99,16 +92,16 @@ const products = [
     },
     {
         id: 11,
-        name: "Vical Signature Blend",
-        description: "Our signature blend of premium fresh fruits.",
+        name: "Orange Juice",
+        description: "100% freshly squeezed oranges with zero added sugar.",
         image: "images/better.jpg",
         singlePrice: 20.00,
         packs: classicPacks
     },
     {
         id: 12,
-        name: "Vical Premium Mix",
-        description: "A specially curated mix for vibrant energy.",
+        name: "Mint Lovers",
+        description: "Mint | Pineapple | Ginger. Refreshing & healthy.",
         image: "images/better1.jpg",
         singlePrice: 20.00,
         packs: classicPacks
@@ -153,22 +146,23 @@ document.addEventListener('DOMContentLoaded', () => {
             let packOptionsHtml = `
                 <div class="pack-options">
                     <label class="price-label" for="pack-${product.id}">SELECT SIZE:</label>
-                    <select id="pack-${product.id}" class="pack-select" onchange="updatePrice(${product.id}, this)">
+                    <select id="pack-${product.id}" class="pack-select" data-single-price="${product.singlePrice || 0}" onchange="updatePrice(${product.id}, this)">
                         ${(product.packs || []).map(pack => `<option value="${pack.name}" data-price="${pack.price}">${pack.name} - GH₵${pack.price.toFixed(2)}</option>`).join('')}
                     </select>
                 </div>
             `;
 
             const initialPrice = hasPacks ? product.packs[0].price : 0;
+            const singlePriceStr = product.singlePrice ? ` <span class="per-bottle-label" style="font-size: 0.55em; opacity: 0.7; font-weight: 500; display: block; line-height: 1.2;">(GH₵${product.singlePrice.toFixed(2)} per bottle)</span>` : '';
 
             card.innerHTML = `
                 <img src="${product.image}" alt="${product.name}" class="product-image">
                 <div class="product-info">
                     <h3 class="product-title">${product.name}</h3>
                     <p class="product-desc">${product.description}</p>
-                    <div class="price-section">
-                        <span class="price-label">PRICE</span>
-                        <div class="price-value" id="price-${product.id}">GH₵${initialPrice.toFixed(2)}</div>
+                    <div class="price-section" style="align-items: flex-start;">
+                        <span class="price-label" style="margin-top: 0.5rem;">PRICE (WHOLESALE)</span>
+                        <div class="price-value" id="price-${product.id}" style="text-align: right;">GH₵${initialPrice.toFixed(2)}${singlePriceStr}</div>
                     </div>
                     ${packOptionsHtml}
                     <button class="btn-primary btn-buy" onclick="buyNow(${product.id}, '${product.name.replace(/'/g, "\\'")}')">
@@ -230,7 +224,9 @@ document.addEventListener('DOMContentLoaded', () => {
 window.updatePrice = function(productId, selectElement) {
     const selectedOption = selectElement.options[selectElement.selectedIndex];
     const price = parseFloat(selectedOption.getAttribute('data-price'));
-    document.getElementById(`price-${productId}`).innerText = `GH₵${price.toFixed(2)}`;
+    const singlePrice = parseFloat(selectElement.getAttribute('data-single-price'));
+    const singlePriceStr = singlePrice ? ` <span class="per-bottle-label" style="font-size: 0.55em; opacity: 0.7; font-weight: 500; display: block; line-height: 1.2;">(GH₵${singlePrice.toFixed(2)} per bottle)</span>` : '';
+    document.getElementById(`price-${productId}`).innerHTML = `GH₵${price.toFixed(2)}${singlePriceStr}`;
 };
 
 window.buyNow = function(productId, productName) {
