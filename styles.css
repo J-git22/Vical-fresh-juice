@@ -361,6 +361,8 @@ img { max-width: 100%; display: block; border-radius: var(--radius-md); }
     .section-header h2 { font-size: 1.75rem; }
     .wholesale { padding: 3rem 1.5rem; margin: 1rem; width: auto; }
     .process { padding: 3rem 1.5rem; }
+    .shop { padding: 3rem 1.5rem; }
+    .hero { padding-top: 6rem; padding-bottom: 2rem; }
     .story-content h2 { font-size: 2rem; }
     .hero-stats { flex-direction: column; gap: 1rem; }
     .product-grid, .specialty-grid { grid-template-columns: 1fr; }

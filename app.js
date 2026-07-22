@@ -63,17 +63,7 @@ const products = [
             { name: "10 bottles", size: 10, price: 300.00 }
         ]
     },
-    {
-        id: 8,
-        name: "Tigernut Rising Sun",
-        description: "Refreshing Tigernut blend.",
-        image: "images/tigernut-sun2.jpg",
-        singlePrice: 30.00,
-        packs: [
-            { name: "4 bottles", size: 4, price: 120.00 },
-            { name: "10 bottles", size: 10, price: 300.00 }
-        ]
-    },
+
     {
         id: 9,
         name: "Detox Special",
@@ -156,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const singlePriceStr = product.singlePrice ? ` <span class="per-bottle-label" style="font-size: 0.55em; opacity: 0.7; font-weight: 500; display: block; line-height: 1.2;">(GH₵${product.singlePrice.toFixed(2)} per bottle)</span>` : '';
 
             card.innerHTML = `
-                <img src="${product.image}" alt="${product.name}" class="product-image">
+                <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
                 <div class="product-info">
                     <h3 class="product-title">${product.name}</h3>
                     <p class="product-desc">${product.description}</p>
