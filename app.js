@@ -10,6 +10,14 @@ const classicPacks = [
     { name: "Party Pack (200 bottles)", size: 200, price: 4000.00 }
 ];
 
+const premiumPacks = [
+    { name: "Mini Pack (10 bottles)", size: 10, price: 250.00 },
+    { name: "Personal Pack (20 bottles)", size: 20, price: 500.00 },
+    { name: "Family Pack (50 bottles)", size: 50, price: 1250.00 },
+    { name: "Jumbo Pack (100 bottles)", size: 100, price: 2500.00 },
+    { name: "Party Pack (200 bottles)", size: 200, price: 5000.00 }
+];
+
 const products = [
     {
         id: 1,
@@ -70,7 +78,7 @@ const products = [
         description: "Green Juice - Detox Special.",
         image: "images/detox.jpg",
         singlePrice: 25.00,
-        packs: classicPacks
+        packs: premiumPacks
     },
     {
         id: 10,
@@ -78,7 +86,7 @@ const products = [
         description: "Fresh and healthy carrot juice.",
         image: "images/carrot.jpg",
         singlePrice: 25.00,
-        packs: classicPacks
+        packs: premiumPacks
     },
     {
         id: 11,
