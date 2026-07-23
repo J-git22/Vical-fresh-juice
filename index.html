@@ -260,28 +260,12 @@
             <h2>What Our Customers Say</h2>
             <p>Don't just take our word for it—taste the difference!</p>
         </div>
-        <div class="reviews-container">
-            <div class="testimonial-card">
-                <div class="stars">
-                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-                </div>
-                <p class="quote">"Absolutely the best fresh juice I have ever tasted! The Mango Juice is out of this world and you can really taste that it's 100% natural."</p>
-                <h4 class="customer-name">- Sarah T.</h4>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">
-                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-                </div>
-                <p class="quote">"We order the wholesale packs for our office every week. The team loves the Tigernut Blend, and the delivery is always perfectly on time!"</p>
-                <h4 class="customer-name">- Kwame O.</h4>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">
-                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-                </div>
-                <p class="quote">"No added sugar, just pure fruit goodness. The Detox Special has become a staple in my morning routine. Highly recommend!"</p>
-                <h4 class="customer-name">- Abena M.</h4>
-            </div>
+        <div class="reviews-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; align-items: start;">
+            <img src="images/review.jpg" alt="Customer Review" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-soft); cursor: pointer; transition: transform 0.3s;" onclick="openModal(this.src)" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="images/review1.jpg" alt="Customer Review" onerror="this.style.display='none'" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-soft); cursor: pointer; transition: transform 0.3s;" onclick="openModal(this.src)" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="images/review2.jpg" alt="Customer Review" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-soft); cursor: pointer; transition: transform 0.3s;" onclick="openModal(this.src)" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="images/review3.jpg" alt="Customer Review" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-soft); cursor: pointer; transition: transform 0.3s;" onclick="openModal(this.src)" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="images/review4.jpg" alt="Customer Review" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-soft); cursor: pointer; transition: transform 0.3s;" onclick="openModal(this.src)" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
         </div>
         <div class="leave-review-cta">
             <h3>Enjoyed your juice? Tell us what you think 💚</h3>
