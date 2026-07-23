@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const singlePriceStr = product.singlePrice ? ` <span class="per-bottle-label" style="font-size: 0.65em; opacity: 0.8; font-weight: 500; display: block; line-height: 1.2;">per bottle (Available in packs only)</span>` : '';
 
             card.innerHTML = `
-                <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
+                <img src="${product.image}" alt="${product.name}" class="product-image">
                 <div class="product-info">
                     <h3 class="product-title">${product.name}</h3>
                     <p class="product-desc">${product.description}</p>
