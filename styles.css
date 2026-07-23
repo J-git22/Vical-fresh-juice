@@ -8,13 +8,13 @@
     /* Accents & Backgrounds */
     --clr-bg: #fafafa;
     --clr-surface: #ffffff;
-    --clr-lemon-green-light: #d9f99d;
-    --clr-orange-light: #fed7aa;
+    --clr-lemon-green-light: #ecfccb;
+    --clr-orange-light: #ffedd5;
     
     /* Gradients */
-    --grad-hero: linear-gradient(135deg, #fef08a 0%, #d9f99d 50%, #fed7aa 100%);
-    --grad-primary: linear-gradient(135deg, #f59e0b 0%, #84CC16 100%);
-    --grad-glass: rgba(255, 255, 255, 0.85);
+    --grad-hero: linear-gradient(135deg, #f8fafc 0%, #d9f99d 50%, #ffedd5 100%);
+    --grad-primary: linear-gradient(135deg, var(--clr-lemon-green) 0%, #65a30d 100%);
+    --grad-glass: rgba(255, 255, 255, 0.7);
     
     /* Text Colors */
     --clr-text-dark: #14532d; /* Very dark green instead of slate */
@@ -51,7 +51,7 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: var(--font-primary);
-    background: linear-gradient(-45deg, #fef08a, #d9f99d, #fed7aa, #bbf7d0, #fef9c3);
+    background: linear-gradient(-45deg, #f8fafc, #d9f99d, #ffedd5, #ffffff);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     color: var(--clr-text-body);
@@ -178,9 +178,9 @@ img { max-width: 100%; display: block; border-radius: var(--radius-md); }
 .product-card {
     background: rgba(255, 255, 255, 0.85); 
     backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    border: 2px solid rgba(132, 204, 22, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: var(--radius-lg); overflow: hidden;
-    box-shadow: 0 10px 40px -10px rgba(249, 115, 22, 0.2); transition: var(--transition); display: flex; flex-direction: column;
+    box-shadow: var(--shadow-soft); transition: var(--transition); display: flex; flex-direction: column;
 }
 .product-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
 .product-image { 
