@@ -136,14 +136,13 @@ document.addEventListener('DOMContentLoaded', () => {
             let packOptionsHtml = `
                 <div class="pack-options">
                     <label class="price-label" for="pack-${product.id}">SELECT SIZE:</label>
-                    <select id="pack-${product.id}" class="pack-select" data-single-price="${product.singlePrice || 0}" onchange="updatePrice(${product.id}, this)">
+                    <select id="pack-${product.id}" class="pack-select">
                         ${(product.packs || []).map(pack => `<option value="${pack.name}" data-price="${pack.price}">${pack.name} - GH₵${pack.price.toFixed(2)}</option>`).join('')}
                     </select>
                 </div>
             `;
 
-            const initialPrice = hasPacks ? product.packs[0].price : 0;
-            const singlePriceStr = product.singlePrice ? ` <span class="per-bottle-label" style="font-size: 0.55em; opacity: 0.7; font-weight: 500; display: block; line-height: 1.2;">(GH₵${product.singlePrice.toFixed(2)} per bottle)</span>` : '';
+            const singlePriceStr = product.singlePrice ? ` <span class="per-bottle-label" style="font-size: 0.65em; opacity: 0.8; font-weight: 500; display: block; line-height: 1.2;">per bottle (Available in packs only)</span>` : '';
 
             card.innerHTML = `
                 <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
@@ -151,8 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3 class="product-title">${product.name}</h3>
                     <p class="product-desc">${product.description}</p>
                     <div class="price-section" style="align-items: flex-start;">
-                        <span class="price-label" style="margin-top: 0.5rem;">PRICE (WHOLESALE)</span>
-                        <div class="price-value" id="price-${product.id}" style="text-align: right;">GH₵${initialPrice.toFixed(2)}${singlePriceStr}</div>
+                        <span class="price-label" style="margin-top: 0.5rem;">PRICE</span>
+                        <div class="price-value" id="price-${product.id}" style="text-align: left;">GH₵${product.singlePrice.toFixed(2)}${singlePriceStr}</div>
                     </div>
                     ${packOptionsHtml}
                     <button class="btn-primary btn-buy" onclick="buyNow(${product.id}, '${product.name.replace(/'/g, "\\'")}')">
@@ -161,11 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
             productGrid.appendChild(card);
-            
-            const selectEl = document.getElementById(`pack-${product.id}`);
-            if(selectEl && selectEl.tagName === 'SELECT') {
-               updatePrice(product.id, selectEl);
-            }
         });
     }
 
@@ -212,11 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- Global Functions ---
 
 window.updatePrice = function(productId, selectElement) {
-    const selectedOption = selectElement.options[selectElement.selectedIndex];
-    const price = parseFloat(selectedOption.getAttribute('data-price'));
-    const singlePrice = parseFloat(selectElement.getAttribute('data-single-price'));
-    const singlePriceStr = singlePrice ? ` <span class="per-bottle-label" style="font-size: 0.55em; opacity: 0.7; font-weight: 500; display: block; line-height: 1.2;">(GH₵${singlePrice.toFixed(2)} per bottle)</span>` : '';
-    document.getElementById(`price-${productId}`).innerHTML = `GH₵${price.toFixed(2)}${singlePriceStr}`;
+    // Legacy function, intentionally left blank as prices are now static per bottle
 };
 
 window.buyNow = function(productId, productName) {
